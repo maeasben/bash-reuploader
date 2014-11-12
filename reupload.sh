@@ -108,7 +108,7 @@ function check {
 #
 # Checks requirement, create if needed
 if [ ! -f ${DBNAME} ]; then
-	${SQLITE} ${DBNAME} "CREATE TABLE IF NOT EXISTS upfile (source text primary key, file text, seen date, link text, tries integer)"
+	`${SQLITE} ${DBNAME} < resources/inidb.sql`
 fi
 if [ -f ${FPATH} ]; then
 	echo "${FPATH} exists and is not a directory. Aborted"
