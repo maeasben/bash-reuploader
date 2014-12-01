@@ -8,29 +8,10 @@
 # Test links (and reup if needed) :
 #    bash reupload.sh
 
-#######################################
-#                                     #
-#         User variables              #
-#                                     #
-#######################################
-
-# Path where the files are downloaded
-FPATH="/home/you/down/"
-
-# The database parh and name
-DBNAME="/home/you/upfiles.db"
-# Structure of the database
-# table : upfile
-# source (text, pk) : initial url of the file
-# file (text) : downloaded file
-# seen (text) : last check ok (datetime)
-# link (text) : the new link
-
-# List of the plugin you want to use
-plugins=(zippyshare mega filecloud 1fichier)
-
-# Number of file tested each time
-nbf=3
+if [ ! [ -f etc/reuploader.conf ]  && ! [ source etc/reuploader.conf ]] then
+	echo "Configuration not found, exiting"
+	exit 0
+fi
 
 #######################################
 #                                     #
