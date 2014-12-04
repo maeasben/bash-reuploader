@@ -8,7 +8,9 @@
 # Test links (and reup if needed) :
 #    bash reupload.sh
 
-if [ ! [ -f etc/reuploader.conf ]  && ! [ source etc/reuploader.conf ]] then
+if [ -f "etc/reuploader.conf" ]; then
+	source "etc/reuploader.conf"
+else
 	echo "Configuration not found, exiting"
 	exit 0
 fi
